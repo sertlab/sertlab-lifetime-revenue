@@ -1,0 +1,23 @@
+{
+    "name": "sertlab/module-lifetime-revenue",
+    "description": "Sertlab LifeTime Revenue Module",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "require": {
+        "php": ">=8.1.0",
+        "magento/framework": "*",
+        "magento/module-sales": "*",
+        "magento/module-customer": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Sertlab\\LifeTimeRevenue\\": ""
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sertlab_lifetime_revenue" resource="default" engine="innodb" comment="Sertlab Customer Lifetime Revenue">
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="decimal" name="customer_lifetime_revenue" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="Customer Lifetime Revenue"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="customer_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="SERTLAB_LIFETIME_REVENUE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="sertlab_lifetime_revenue" column="customer_id"
+                    referenceTable="customer_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>
