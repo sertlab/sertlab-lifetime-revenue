@@ -106,8 +106,10 @@ or to store the revenue separately per website.
 ## Trade-offs and Possible Improvements
 
 - **Backfill**: customers who already exist will have no record until their next order. A CLI
-  command or an admin button per customer could be added to handle this. I left it out of scope
-  for now but it is a natural next step.
+  command or an admin button per customer could be added to handle this. I deliberately did not
+  include a data patch to backfill on deployment on a large store, iterating over all customers
+  and recalculating their revenue during `setup:upgrade` could cause significant downtime. A CLI
+  command gives control over when and how the backfill runs, making it safer for production deployments.
 
 - **Async processing**: on high-traffic stores, running the recalculation synchronously adds
   a small delay to the order save. Moving it to a queue would remove that risk.
